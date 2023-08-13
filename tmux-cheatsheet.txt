@@ -1,0 +1,90 @@
+=======================
+Tmux keyboard shortcuts
+=======================
+
+-------------------
+General Keybindings
+-------------------
+C -a 		The default leader key.
+C -a + ?	Open tmux’s help menu.
+C -a + ~	Display all the system messages for the current session.
+C -a + C -a 	Send the leader key through the terminal.
+C -a + :	Open the command buffer.
+C -a + Ctrl + Z	Suspend the current tmux client.
+C -a + D	Detach the current session from the active terminal.
+C -a + Shift + D	Open a prompt to select which session to detach.
+C -a + S	Switch to a different session.
+C -a + (	Move the current client to the previous session.
+C -a + )	Move the current client to the next session.
+C -a + R	Redraw the current screen.
+C -a + T	Show the current time.
+
+-----------------
+Window Management	
+-----------------
+C -a + C	Create a new window.
+C -a + &	Delete the currently selected window.
+C -a + I	Briefly display information about the currently selected window.
+C -a + N	Go to the next window in the session.
+C -a + P	Go to the previous window in the session.
+C -a + Alt + N	Go to the next window with a marker.
+C -a + Alt + P	Go to the previous window with a marker.
+C -a + ,	Change the label of the current window.
+C -a + .	Change the index number of the current window.
+C -a + L	Go back to the previously selected window.
+C -a + 0-9	Go to the window with the corresponding index number.
+C -a + ‘	Open a prompt to directly switch to a specific index number.
+C -a + W	Open a prompt to interactively select the window to switch to.
+C -a + F	Search for windows that contain a specific text string.
+
+---------------
+Pane Management	
+---------------
+C -a + Q	Show the pane index for the currently visible screen.
+C -a + %	Create a new vertically split pane in the current window.
+C -a + “	Create a new horizontally split pane in the current window.
+C -a + X	Delete the currently selected pane.
+C -a + !	Put the currently selected pane to a different window.
+C -a + ;	Select the previously active pane.
+C -a + M	Mark the current pane.
+C -a + Shift + M	Unmark the current pane.
+C -a + O	Select the next pane in the currently selected window.
+C -a + {	Swap the currently selected pane with the previous one in the index.
+C -a + }	Swap the currently selected pane with the next one in the index.
+C -a + Up	Select the pane above the currently selected pane.
+C -a + Down	Select the pane below the currently selected pane.
+C -a + Left	Select the pane on the left of the currently selected pane.
+C -a + Right	Select the pane on the right of the currently selected pane.
+Pane Layouts	
+C -a + Alt + 1	Arrange the layout of the panes in the current window to a horizontally stacked layout.
+C -a + Alt + 2	Arrange the layout of the panes in the current window to a vertically stacked layout.
+C -a + Alt + 3	Arrange the layout of the panes in the current window to a horizontal master-stack layout.
+C -a + Alt + 4	Arrange the layout of the panes in the current window to a vertical master-stack layout.
+C -a + Alt + 5	Arrange the layout of the panes in the current window to a tiled layout.
+C -a + Space	Cycle through all of the default layouts in the current window.
+C -a + Ctrl + Up	Increase the size of the currently selected pane by one row upwards.
+C -a + Ctrl + Down	Increase the size of the currently selected pane by one row downwards.
+C -a + Ctrl + Left	Increase the size of the currently selected pane by one row leftwards.
+C -a + Ctrl + Right	Increase the size of the currently selected pane by one row rightwards.
+
+--------------
+Text Copy Mode
+--------------
+C -a + [	Switch the current session to tmux’s text copy mode.
+G	        Go to the top line of the current window.
+Shift + G	Go to the bottom line of the current window.
+/	        Do a forward search for a keyword.
+?	        Do a backward search for a keyword.
+N	        Highlight the next occurrence of a keyword.
+Shift + N	Highlight the previous occurrence of a keyword.
+K / Up Arrow	    Move the cursor one line upwards.
+J / Down Arrow	    Move the cursor one line downwards.
+H / Left Arrow	    Move the cursor one character leftwards.
+L / Right Arrow	    Move the cursor one character rightwards.
+W	                Move the cursor one word forward.
+B                   Move the cursor one word backward.
+Ctrl + Space	    Start the text selection at the current point.
+Ctrl + W	        Copy the selected text to the paste buffer.
+Q	                Switch the current window back to a regular tmux session.
+C -a + ]	        Paste the contents of the last buffer to the current window.
+C -a + =	        Open the list of currently active sessions and select where to paste the current selection.

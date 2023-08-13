@@ -1,0 +1,547 @@
+================
+Linux cheatsheet
+================
+
+-------------
+Bash Commands
+-------------
+uname -a            Show system and kernel
+head -n1 /etc/issue Show distri­bution
+mount               Show mounted filesy­stems
+date                Show system date
+uptime              Show uptime
+whoami              Show your username
+man command         Show manual for command
+
+--------------
+Bash Shortcuts
+--------------
+CTRL        -l Clears the screen just like clear command.
+CTRL-c      Stop current command
+CTRL-z      Sleep program
+CTRL-a      Go to start of line
+CTRL-e      Go to end of line
+CTRL-u      Cut from start of line
+CTRL-k      Cut to end of line
+CTRL-r      Search history
+CTRL-p      Browse history backwards (up arrow)
+CTRL-n      Browse history forward (down arrow)
+CTRL-w      Erase the word before the cursor.
+CTRL-d      Delete the character at the cursor location.
+CTRL-y      Paste the last thing you cut from the clipboard.
+ALT-B       Move one word back
+ALT-F       Move one word forward
+!!          Repeat last command
+!abc        Run last command starting with abc
+!abc:p      Print last command starting with abc
+!$          Last argument of previous command
+ALT-.       Last argument of previous command
+!*          All arguments of previous command
+^abc^123    Run previous command, replacing abc with 123
+
+--------------
+Bash Variables
+--------------
+env                 Show enviro­nment variables
+echo $NAME          Output value of $NAME variable
+export NAME=value   Set $NAME to value
+$PATH               Executable search path
+$HOME               Home directory
+$SHELL              Current shell
+
+--------------
+IO Redire­ction
+--------------
+cmd < file          Input of cmd from file
+cmd1 <(cmd2)        Output of cmd2 as file input to cmd1
+cmd > file          Standard output (stdout) of cmd to file
+cmd > /dev/null     Discard stdout of cmd
+cmd >> file         Append stdout to file
+cmd 2> file         Error output (stderr) of cmd to file
+cmd 1>&2            stdout to same place as stderr
+cmd 2>&1            stderr to same place as stdout
+cmd &> file         Every output of cmd to file
+
+-----
+Pipes
+-----
+cmd1 | cmd2         stdout of cmd1 to cmd2
+cmd1 |& cmd2        stderr of cmd1 to cmd2
+
+-------------
+Command Lists
+-------------
+cmd1 ; cmd2         Run cmd1 then cmd2
+cmd1 && cmd2        Run cmd2 if cmd1 is successful
+cmd1 || cmd2        Run cmd2 if cmd1 is not successful
+cmd &               Run cmd in a subshell
+
+--------------------
+Directory Operations
+--------------------
+pwd         Show current directory
+mkdir dir   Make directory dir
+cd dir      Change directory to dir
+cd ..       Go up a directory
+ls          List files, ls Options
+    -a      Show all (including hidden)
+    -R      Recursive list
+    -r      Reverse order
+    -t      Sort by last modified
+    -S      Sort by file size
+    -l      Long listing format
+    -1      One file per line
+    -m      Comma-­sep­arated output
+    -Q      Quoted output
+
+------------
+Search Files
+------------
+grep pattern files      Search for pattern in files
+grep -i                 Case insens­itive search
+grep -r                 Recursive search
+grep -v                 Inverted search
+grep -o                 Show matched part of file only
+find /dir/ -name name*  Find files starting with name in dir
+find /dir/ -user name   Find files owned by name in dir
+find /dir/ -mmin num    Find files modifed less than num minutes ago in dir
+whereis command         Find binary / source / manual for command
+locate file             Find file (quick search of system index)
+
+---------------
+File Operations
+---------------
+touch file1         Create file1
+cat file1 file2     Concat­enate files and output
+less file1          View and paginate file1
+file file1          Get type of file1
+cp file1 file2      Copy file1 to file2
+mv file1 file2      Move file1 to file2
+rm file1            Delete file1
+head file1          Show first 10 lines of file1
+tail file1          Show last 10 lines of file1
+tail -F file1       Output last lines of file1 as it changes
+
+---------------
+Watch a Command
+---------------
+watch -n 5 'ntpq -p'    Issue the 'ntpq -p' command every 5 seconds and display output
+
+------------------
+Process Management
+------------------
+ps              Show snapshot of processes
+top             Show real time processes
+kill pid        Kill process with id pid
+pkill name      Kill process with name name
+killall name    Kill all processes with names beginning name
+ 	
+--------------
+Nano Shortcuts
+--------------
+# Files:
+Ctrl-R      Read file
+Ctrl-O      Save file
+Ctrl-X      Close file
+
+# Cut and Paste
+ALT-A       Start marking text
+CTRL-K      Cut marked text or line
+CTRL-U      Paste text
+
+# Navigate File
+ALT-/       End of file
+CTRL-A      Beginning of line
+CTRL-E      End of line
+CTRL-C      Show line number
+CTRL-_      Go to line number
+
+# Search File
+CTRL-W      Find
+ALT-W       Find next
+CTRL-\      Search and replace
+
+----------------
+Screen Shortcuts
+----------------
+screen          Start a screen session.
+screen -r       Resume a screen session.
+screen -list    Show your current screen sessions.
+CTRL-A          Activate commands for screen.
+CTRL-A c        Create a new instance of terminal.
+CTRL-A n        Go to the next instance of terminal.
+CTRL-A p        Go to the previous instance of terminal.
+CTRL-A "        Show current instances of terminals.
+CTRL-A A        Rename the current instance.
+
+----------------
+File Permis­sions
+----------------
+chmod 775 file          Change mode of file to 775
+chmod -R 600 folder     Recurs­ively chmod folder to 600
+chown user:group file   Change file owner to user and group to group
+
+-----------------------
+File Permission Numbers
+-----------------------
+First digit is owner permis­sion, second is group and third is everyone.
+Calculate permission digits by adding numbers below.
+4       read (r)
+2       write (w)
+1       execute (x)
+
+
+--------------
+Bash shortcuts
+--------------
+Ctrl + A            Move to the start of the command line
+Ctrl + E            Move to the end of the command line
+Ctrl + F            Move one character forward
+Ctrl + B            Move one character backward
+Ctrl + XX           Switch cursor position between start of the command line and the current position
+Ctrl + ] + x        Moves the cursor forward to next occurrence of x
+Alt + F / Esc + F   Moves the cursor one word forward
+Alt + B / Esc + B   Moves the cursor one word backward
+Alt + Ctrl + ] + x  Moves cursor to the previous occurrence of x
+
+--------------------
+Bash Control/Process
+--------------------
+Ctrl + L            Similar to clear command, clears the terminal screen
+Ctrl + S            Stops command output to the screen
+Ctrl + Z            Suspends current command execution and moves it to the background
+Ctrl + Q            Resumes suspended command
+Ctrl + C            Sends SIGI signal and kills currently executing command
+Ctrl + D            Closes the current terminal
+
+------------
+Bash History
+------------
+Ctrl + R                Incremental reverse search of bash history
+Alt + P                 Non-incremental reverse search of bash history
+Ctrl + J                Ends history search at current command
+Ctrl + _                Undo previous command
+Ctrl + P / Up arrow     Moves to previous command
+Ctrl + N / Down arrow   Moves to next command
+Ctrl + S                Gets the next most recent command
+Ctrl + O                Runs and re-enters the command found via Ctrl + S and Ctrl + R
+Ctrl + G                Exits history search mode
+!!                      Runs last command
+!*                      Runs previous command except its first word
+!*:p                    Displays what !* substitutes
+!x                      Runs recent command in the bash history that begins with x
+!x:p                    Displays the x command and adds it as the recent command in history
+!$                      Same as OPTION+., brings forth last argument of the previous command
+!^                      Substitutes first argument of last command in the current command
+!$:p                    Displays the word that !$ substitutes
+^123^abc                Replaces 123 with abc
+!n:m                    Repeats argument within a range (i.e, m 2-3)
+!fi                     Repeats latest command in history that begins with fi
+!n                      Run nth command from the bash history
+!n:p                    Prints the command !n executes
+!n:$                    Repeat arguments from the last command (i.e, from argument n to $)
+
+------------
+Bash Editing
+------------
+Ctrl + U            Deletes before the cursor until the start of the command
+Ctrl + K            Deletes after the cursor until the end of the command
+Ctrl + W            Removes the command/argument before the cursor
+Ctrl + D            Removes the character under the cursor
+Ctrl + H            Removes character before the cursor
+Alt + D             Removes from the character until the end of the word
+Alt + Backspace     Removes from the character until the start of the word
+Alt + . / Esc+.     Uses last argument of previous command
+Alt + <             Moves to the first line of the bash history
+Alt + >             Moves to the last line of the bash history
+Esc + T             Switch between last two words before cursor
+Alt + T             Switches current word with the previous
+
+----------------
+Bash Information
+----------------
+TAB                 Autocompletes the command or file/directory name
+~TAB TAB            List all Linux users
+Ctrl + I            Completes the command like TAB
+Alt + ?             Display files/folders in the current path for help
+Alt + *             Display files/folders in the current path as parameter
+
+
+------------------
+SYSTEM INFORMATION
+------------------
+uname -a                Display Linux system information
+uname -r                Display kernel release information
+cat /etc/os-release     Show operating system information such as distribution name and version
+uptime                  Show how long the system has been running + lo
+hostname                Show system host name
+hostname -I             Display all local IP addresses of the host.
+last reboot             Show system reboot history
+date                    Show the current date and time
+cal                     Show this month's calendar
+w                       Display who is online
+whoami                  Who you are logged in as
+
+--------------------
+HARDWARE INFORMATION
+--------------------
+dmesg                   Display messages in kernel ring buffer
+cat /proc/cpuinfo       Display CPU information
+cat /proc/meminfo       Display memory information
+free -h                 Display free and used memory ( -h for human readable, -m for MB, -g for GB.)
+lspci -tv               Display PCI devices
+lsusb -tv               Display USB devices
+dmidecode               Display DMI/SMBIOS (hardware info) from the BIOS
+hdparm -i /dev/sda      Show info about disk sda
+hdparm -tT /dev/sda     Perform a read speed test on disk sda
+badblocks -s /dev/sda   Test for unreadable blocks on disk sda
+
+------------------------------------
+PERFORMANCE MONITORING AND STATISTIC
+------------------------------------
+top                             Display and manage the top processes
+htop                            Interactive process viewer (top alternative)
+mpstat 1                        Display processor related statistics
+vmstat 1                        Display virtual memory statistics
+iostat 1                        Display I/O statistics
+tail -100 /var/log/messages     Display the last 100 syslog messages  (Use /var/log/syslog for Debian based systems.)
+tcpdump -i eth0                 Capture and display all packets on interface eth0
+tcpdump -i eth0 'port 80'       Monitor all traffic on port 80 ( HTTP )
+lsof                            List all open files on the system
+lsof -u user                    List files opened by user
+free -h                         Display free and used memory ( -h for human readable, -m for MB, -g for GB.)
+watch df -h                     Execute "df -h", showing periodic updates
+
+-------------------------------
+USER INFORMATION AND MANAGEMENT
+-------------------------------
+id                                  Display the user and group ids of your current user.
+last                                Display the last users who have logged onto the system.
+who                                 Show who is logged into the system.
+w                                   Show who is logged in and what they are doing.
+groupadd test                       Create a group named "test".
+useradd -c "John Smith" -m john     Create an account named john, with a comment of "John Smith" and create the user's home directory.
+userdel john                        Delete the john account.
+usermod -aG sales john              Add the john account to the sales group
+
+--------------------------
+FILE AND DIRECTORY COMMAND
+--------------------------
+ls -al                          List all files in a long listing (detailed) format
+pwd                             Display the present working directory
+mkdir directory                 Create a directory
+rm file                         Remove (delete) file
+rm -r directory                 Remove the directory and its contents recursively
+rm -f file                      Force removal of file without prompting for confirmation
+rm -rf directory                Forcefully remove directory recursively
+cp file1 file2                  Copy file1 to file2
+cp -r source_dir dest           Copy source_directory recursively to destination. If destination exists, copy source_directory into destination, otherwise create destination with the contents of source_directory.
+mv file1 file2                  Rename or move file1 to file2. If file2 is an existing directory, move file1 into directory file2
+ln -s /path/to/file linkname    Create symbolic link to linkname
+touch file                      Create an empty file or update the access and modification times of file.
+cat file                        View the contents of file
+less file                       Browse through a text file
+head file                       Display the first 10 lines of file
+tail file                       Display the last 10 lines of file
+tail -f file                    Display the last 10 lines of file and "follow" the file as it grows.
+
+------------------
+PROCESS MANAGEMENT
+------------------
+ps                      Display your currently running processes
+ps -ef                  Display all the currently running processes on the system.
+ps -ef | grep process   Display process information for processname
+top                     Display and manage the top processes
+htop                    Interactive process viewer (top alternative)
+kill pid                Kill process with process ID of pid
+killall processname     Kill all processes named processname
+program &               Start program in the background
+bg                      Display stopped or background jobs
+fg                      Brings the most recent background job to foreground
+fg n                    Brings job n to the foreground
+
+---------------
+FILE PERMISSION
+---------------
+Linux chmod example
+PERMISSION EXAMPLE
+U   G   W
+rwx rwx rwx     chmod 777 filename
+rwx rwx r-x     chmod 775 filename
+rwx r-x r-x     chmod 755 filename
+rw- rw- r--     chmod 664 filename
+rw- r-- r--     chmod 644 filename
+NOTE: Use 777 sparingly!
+
+LEGEND
+U = Us
+G = Group
+W = World
+
+r = Read
+w = write
+x = execute
+- = no access
+
+----------
+NETWORKING
+----------
+ip a                            Display all network interfaces and IP address
+ip addr show dev eth0           Display eth0 address and details
+ethtool eth0                    Query or control network driver and hardware settings
+ping host                       Send ICMP echo request to host
+whois domain                    Display whois information for domain
+dig domain                      Display DNS information for domain
+dig -x IP_ADDRESS               Reverse lookup of IP_ADDRESS
+host domain                     Display DNS IP address for domain
+hostname -i                     Display the network address of the host name.
+hostname -I                     Display all local IP addresses of the host.
+wget http://domain.com/file     Download http://domain.com/file
+netstat -nutlp                  Display listening tcp and udp ports and corresponding programs
+
+--------------------
+ARCHIVES (TAR FILES)
+--------------------
+tar cf archive.tar directory            Create tar named archive.tar containing directory.
+tar xf archive.tar                      Extract the contents from archive.tar.
+tar czf archive.tar.gz directory        Create a gzip compressed tar file name archive.tar.gz.
+tar xzf archive.tar.gz                  Extract a gzip compressed tar file.
+tar cjf archive.tar.bz2 directory       Create a tar file with bzip2 compression
+tar xjf archive.tar.bz2                 Extract a bzip2 compressed tar file.
+
+------
+SEARCH
+------
+grep pattern file                     Search for pattern in file
+grep -r pattern directory             Search recursively for pattern in directory
+locate name                           Find files and directories by name
+find /home/john -name 'prefix*'       Find files in /home/john that start with "prefix".
+find /home -size +100M                Find files larger than 100MB in /home
+
+---------
+SSH LOGIN
+---------
+ssh host                        Connect to host as your local username.
+ssh user@host                   Connect to host as user
+ssh -p port user@host           Connect to host using port
+
+-------------
+FILE TRANSFER
+-------------
+scp file.txt server:/tmp              Secure copy file.txt to the /tmp folder on server
+scp server:/var/www/*.html /tmp       Copy *.html files from server to the local /tmp folder.
+scp -r server:/var/www /tmp           Copy all files and directories recursively from server to the current system's /tmp folder.
+rsync -a /home /backups/              Synchronize /home to /backups/home
+rsync -avz /home server:/backups/     Synchronize files/directories between the local and remote system with compression enabled
+
+----------
+DISK USAGE
+----------
+df -h                   Show free and used space on mounted filesystems
+df -i                   Show free and used inodes on mounted filesystems
+fdisk -l                Display disks partitions sizes and types
+du -ah                  Display disk usage for all files and directories in human readable format
+du -sh                  Display total disk usage off the current directory
+
+--------------------
+DIRECTORY NAVIGATION
+--------------------
+cd ..                   To go up one level of the directory tree.  (Change into the parent directory.)
+cd                      Go to the $HOME directory
+cd /etc                 Change to the /etc directory
+
+--------
+SECURITY
+--------
+passwd                  Change the current user's password.
+sudo -i                 Switch to the root account with root's environment. (Login shell.)
+sudo -s                 Execute your current shell as root. (Non-login shell.)
+sudo -l                 List sudo privileges for the current user.
+visudo                  Edit the sudoers configuration file.
+getenforce              Display the current SELinux mode.
+sestatus                Display SELinux details such as the current SELinux mode, the configured mode, and the loaded policy.
+setenforce 0            Change the current SELinux mode to Permissive. (Does not survive a reboot.)
+setenforce 1            Change the current SELinux mode to Enforcing. (Does not survive a reboot.)
+SELINUX=enforcing       Set the SELinux mode to enforcing on boot by using this setting in the /etc/selinux/config file.
+SELINUX=permissive      Set the SELinux mode to permissive on boot by using this setting in the /etc/selinux/config file.
+SELINUX=disabled        Set the SELinux mode to disabled on boot by using this setting in the /etc/selinux/config file.
+
+--------------------
+LOGGING AND AUDITING
+--------------------
+dmesg                        Display messages in kernel ring buffer.
+journalctl                   Display logs stored in the systemd journal.
+journalctl -u servicename    Display logs for a specific unit (service)
+
+-------------------
+Command	Description
+-------------------
+w                                   Display all login users
+useradd username                    Add a new user account
+userdel -r username                 Delete a user account
+usermod [option] username           Change the user account information including, group, home directory, shell, expiration date
+usermod -aG groupname username      Add a user to a specific group
+groupadd groupname                  Create a new group
+groupdel groupname                  Remove a group
+last                                Display information of the last login user
+id                                  Display UID and GID of the current user
+
+---------------------------
+Process Management Commands
+---------------------------
+# When you run any application in Linux. The application will get a process ID or PID. Process Management helps you to monitor and manage your application.
+ps                              Display all active processes
+ps -ef | grep processname       Display information of specific process
+top                             Manage and display all processes in realtime
+pstree                          Display processes in the tree-like diagram
+lsof                            List all files opened by running processes
+kill pid                        Kill a specific process using process ID
+killall processname             Kill all processes by name
+bg                              Display stopped or background jobs
+pidof processname               Get the PID of any process
+
+------------------------
+Disk Management Commands
+------------------------
+# In this section, we will show you disk management commands including, add and remove partitions, mount a partition, check disk space, format partition, etc.
+fdisk -l                    List all disk partitions
+fdisk /dev/sda              Create a new partition on /dev/sda device
+mkfs.ext4 /dev/sda1         Format the partition named /dev/sda1
+fsck.ext4 /dev/sda1         Check and repair a filesystem for any error
+mount /dev/sda1 /mnt        Mount any partition to any directory
+df -h                       Display free space of mounted file system
+df -i                       Display free inodes on the filesystem
+du -hs                      Display the size of your current directory
+lsblk                       Display information about block devices
+lsusb -tv                   Display all USB devices
+hdparm -tT /dev/sda         Perform a read speed test on disk /dev/sda
+badblocks -s /dev/sda       Test for unreadable blocks on disk /dev/sda
+
+--------------------------
+Package Management Command
+--------------------------
+# In this section, we will show a list of all commands to install, remove and manage packages in Linux.
+apt-get install packagename         Install the package on Debian based distributions
+apt-get remove packagename          Remove a package on Debian based distributions
+dpkg -l | grep -i installed         Get a list of all packages on Debian based distributions
+dpkg -i packagename.deb             Install .deb package
+apt-get update                      Update the repository on Debian based distributions
+apt-get upgrade packagename         Upgrade a specific package on Debian based distributions
+apt-get autoremove                  Remove all unwanted packages on Debian based distributions
+
+--------------------------------
+Compress and Uncompress Commands
+--------------------------------
+# Tar, Zip, and Unzip are the most popular command-line utility in Linux used to compress and uncompress files and directories.
+tar -cvf filename.tar filename                  Compress a file in the Tar archive
+tar -xvf filename.tar                           Uncompress a Tar file
+tar -tvf filename.tar                           List the content of the Tar file
+tar -xvf filename.tar file1.txt                 Untar a single file from Tar file
+tar -rvf filename.tar file2.txt                 Add a file to the Tar file
+zip filename.zip filename                       Compress a single file to a zip
+zip filename.zip file1.txt file2.txt file3.txt  Compress multiple files to a zip
+zip -u filename.zip file4.txt                   Add a file to a zip file
+zip -d filename.zip file4.txt                   Delete a file from a zip file
+unzip -l filename.zip                           Display the content of zip archive file
+unzip filename.zip                              Unzip a file
+unzip filename.zip -d /dirname                  Unzip a file to a specific directory
